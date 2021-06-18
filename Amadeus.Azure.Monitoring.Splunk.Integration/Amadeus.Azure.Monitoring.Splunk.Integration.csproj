@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AzureFunctionsVersion>v3</AzureFunctionsVersion>
@@ -6,8 +6,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="4.0.4" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.11" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Core" Version="3.0.27" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.EventHubs" Version="4.2.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Amadeus.Azure.Monitoring.Splunk.Logs\Amadeus.Azure.Monitoring.Splunk.Logs.csproj" />
     <ProjectReference Include="..\Amadeus.Azure.Monitoring.Splunk.Network\Amadeus.Azure.Monitoring.Splunk.Network.csproj" />
   </ItemGroup>
   <ItemGroup>
