@@ -37,10 +37,6 @@ namespace Amadeus.Azure.Monitoring.Splunk.Network
                 return 0;
             }
 
-            //ServicePointManager.Expect100Continue = true;
-            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            //ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(ValidateMyCert);
-
             int bytesSent = 0;
 
             foreach (var transmission in convertToSplunkList(newClientContent, log))
@@ -102,13 +98,21 @@ namespace Amadeus.Azure.Monitoring.Splunk.Network
 
         public static bool ValidateMyCert(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslErr)
         {
-            return true;
+            var splunkCertThumbprint = GetEnvironmentVariable("splunkCertThumbprint");
 
-            //var splunkCertThumbprint = Util.GetEnvironmentVariable("splunkCertThumbprint");
+            // if user has not configured a cert, anything goes
+            if (string.IsNullOrWhiteSpace(splunkCertThumbprint))
+                return true;
 
-            //var thumbprint = cert.GetCertHashString();
+            // if user has configured a cert, must match
+            var numcerts = chain.ChainElements.Count;
+            var cacert = chain.ChainElements[numcerts - 1].Certificate;
 
-            //return sslErr == SslPolicyErrors.None || thumbprint.ToLower() == splunkCertThumbprint.ToLower();
-		}
+            var thumbprint = cacert.GetCertHashString().ToLower();
+            if (thumbprint == splunkCertThumbprint)
+                return true;
+
+            return false;
+        }
 	}
 }

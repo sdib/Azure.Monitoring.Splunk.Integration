@@ -136,20 +136,6 @@ namespace Amadeus.Azure.Monitoring.Splunk.Logs
             }
         }
 
-        //public static bool ValidateMyCert(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslErr)
-        //{
-        //    // if user has not configured a cert, anything goes
-        //    if (string.IsNullOrWhiteSpace(splunkCertThumbprint))
-        //        return true;
-
-        //    // if user has configured a cert, must match
-        //    var thumbprint = cert.GetCertHashString();
-        //    if (thumbprint == splunkCertThumbprint)
-        //        return true;
-
-        //    return false;
-        //}
-
         public static bool ValidateMyCert(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslErr)
         {
             // if user has not configured a cert, anything goes
