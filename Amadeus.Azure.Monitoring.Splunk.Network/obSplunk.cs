@@ -29,7 +29,7 @@ namespace Amadeus.Azure.Monitoring.Splunk.Network
             //
 
             string splunkAddress = Util.GetEnvironmentVariable("splunkAddress");
-            string splunkToken = Util.GetEnvironmentVariable("splunkToken");
+            string splunkToken = Util.GetEnvironmentVariable("nsgSplunkToken");
 
             if (splunkAddress.Length == 0 || splunkToken.Length == 0)
             {

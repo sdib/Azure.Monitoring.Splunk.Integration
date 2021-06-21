@@ -262,7 +262,7 @@ namespace Amadeus.Azure.Monitoring.Splunk.Logs
         public static async Task obHEC(List<string> standardizedEvents, ILogger log)
         {
             string splunkAddress = Utils.getEnvironmentVariable("splunkAddress");
-            string splunkToken = Utils.getEnvironmentVariable("splunkToken");
+            string splunkToken = Utils.getEnvironmentVariable("activityLogSplunkToken");
             if (splunkAddress.Length == 0 || splunkToken.Length == 0)
             {
                 log.LogError("Values for splunkAddress and splunkToken are required.");
