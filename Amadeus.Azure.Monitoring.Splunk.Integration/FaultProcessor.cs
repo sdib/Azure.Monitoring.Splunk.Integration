@@ -22,7 +22,7 @@ namespace Amadeus.Azure.Monitoring.Splunk.Logs
             string outputBinding = Utils.getEnvironmentVariable("outputBinding").ToLower();
             if (outputBinding.Length == 0)
             {
-                log.LogError("Value for outputBinding is required. Permitted values are: 'proxy', 'hec', 'eventhub'.");
+                log.LogError("Value for outputBinding is required. Permitted values are: 'proxy', 'splunk', 'eventhub'.");
                 return;
             }
 
@@ -39,7 +39,7 @@ namespace Amadeus.Azure.Monitoring.Splunk.Logs
 
                 switch (outputBinding)
                 {
-                    case "hec":
+                    case "splunk":
                         await Utils.obHEC(faultMessages, log);
                         break;
                     case "proxy":
