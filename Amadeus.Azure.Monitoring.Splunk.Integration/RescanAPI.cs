@@ -7,8 +7,8 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Microsoft.WindowsAzure.Storage.Table;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Storage.Blob;
 
 namespace Amadeus.Azure.Monitoring.Splunk.Network
 {

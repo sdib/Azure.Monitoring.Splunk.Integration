@@ -1,12 +1,12 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Buffers;
 using Amadeus.Azure.Monitoring.Splunk.Network;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Storage.Blob;
 
 namespace Amadeus.Azure.Monitoring.Splunk.Integration
 {

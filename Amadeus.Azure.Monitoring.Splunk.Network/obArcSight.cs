@@ -1,6 +1,6 @@
-﻿using Microsoft.Azure.WebJobs;
+﻿using Microsoft.Azure.Storage.Blob;
+using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Buffers;
 using System.Net.Sockets;
