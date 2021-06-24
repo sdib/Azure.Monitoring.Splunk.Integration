@@ -100,9 +100,9 @@ namespace Amadeus.Azure.Monitoring.Splunk.Network
                 case "splunk":
                     bytesSent = await Util.obSplunk(newClientContent, log);
                     break;
-                case "eventhub":
-                    bytesSent = await Util.obEventHub(newClientContent, log);
-                    break;
+                //case "eventhub":
+                //    bytesSent = await Util.obEventHub(newClientContent, log);
+                //    break;
             }
             return bytesSent;
         }
