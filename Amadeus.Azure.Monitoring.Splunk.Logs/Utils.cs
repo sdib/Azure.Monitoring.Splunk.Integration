@@ -138,10 +138,6 @@ namespace Amadeus.Azure.Monitoring.Splunk.Logs
 
         public static bool ValidateMyCert(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslErr)
         {
-            // if user has not configured a cert, anything goes
-            if (string.IsNullOrWhiteSpace(splunkCertThumbprint))
-                return true;
-
             // if user has configured a cert, must match
             var numcerts = chain.ChainElements.Count;
             var cacert = chain.ChainElements[numcerts - 1].Certificate;

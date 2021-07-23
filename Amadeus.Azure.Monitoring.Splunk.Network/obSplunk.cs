@@ -100,10 +100,6 @@ namespace Amadeus.Azure.Monitoring.Splunk.Network
         {
             var splunkCertThumbprint = GetEnvironmentVariable("splunkCertThumbprint");
 
-            // if user has not configured a cert, anything goes
-            if (string.IsNullOrWhiteSpace(splunkCertThumbprint))
-                return true;
-
             // if user has configured a cert, must match
             var numcerts = chain.ChainElements.Count;
             var cacert = chain.ChainElements[numcerts - 1].Certificate;
